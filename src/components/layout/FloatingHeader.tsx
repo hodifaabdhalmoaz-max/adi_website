@@ -61,12 +61,12 @@ export const FloatingHeader: React.FC<FloatingHeaderProps> = ({
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 sm:px-8 pt-8 sm:pt-10 md:pt-12 pb-2 transition-all duration-300 pointer-events-none box-border max-w-full">
+    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center px-4 sm:px-8 pt-12 sm:pt-14 md:pt-16 pb-2 transition-all duration-300 pointer-events-none box-border max-w-full">
       
       {/* =========================================================
           DESKTOP HEADER VIEW (md:block hidden)
          ========================================================= */}
-      <div className="hidden md:block relative w-full max-w-5xl overflow-hidden rounded-full pointer-events-auto mt-2 sm:mt-3">
+      <div className="hidden md:block relative w-full max-w-5xl overflow-hidden rounded-full pointer-events-auto mt-1 sm:mt-2">
         {/* Dynamic Liquid Water Caustic Shadow Aura */}
         <div className="absolute -inset-1.5 rounded-full bg-gradient-to-r from-zinc-100/20 via-zinc-400/30 to-zinc-100/20 blur-xl opacity-80 animate-pulse pointer-events-none" />
 
@@ -179,7 +179,7 @@ export const FloatingHeader: React.FC<FloatingHeaderProps> = ({
           MOBILE / TABLET HEADER VIEW (md:hidden block - MetaLab Layout)
           dir="ltr" ensures predictable LEFT/RIGHT positioning
          ========================================================= */}
-      <div className="block md:hidden w-full pointer-events-auto max-w-md mt-2 sm:mt-3" style={{ paddingLeft: '16px', paddingRight: '16px' }}>
+      <div className="block md:hidden w-full pointer-events-auto max-w-md mt-3 sm:mt-4" style={{ paddingLeft: '16px', paddingRight: '16px' }}>
         <motion.nav
           initial={{ y: -40, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -325,15 +325,15 @@ export const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                   );
                 })}
 
-                {/* Direct Contact Button in Dropdown */}
-                <motion.button
+                {/* Direct Contact Button in Dropdown (WhatsApp) */}
+                <motion.a
+                  href="https://wa.me/967777548421"
+                  target="_blank"
+                  rel="noreferrer"
                   initial={{ opacity: 0, x: -10 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: 0.18, duration: 0.2 }}
-                  onClick={() => {
-                    setIsMobileMenuOpen(false);
-                    openContact();
-                  }}
+                  onClick={() => setIsMobileMenuOpen(false)}
                   className={`w-full mt-1 px-4 py-3 rounded-2xl text-sm font-bold flex items-center justify-center gap-2 transition-all active:scale-[0.98] shadow-md ${
                     theme === 'light'
                       ? 'bg-zinc-950 text-white hover:bg-zinc-900'
@@ -342,7 +342,7 @@ export const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                 >
                   <Mail className="w-4 h-4" />
                   <span>تواصل معنا الآن</span>
-                </motion.button>
+                </motion.a>
               </div>
             </motion.div>
           )}
