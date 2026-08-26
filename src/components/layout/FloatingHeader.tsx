@@ -298,28 +298,26 @@ export const FloatingHeader: React.FC<FloatingHeaderProps> = ({
                       className={`w-full px-4 py-3 rounded-2xl text-sm font-bold flex items-center justify-between transition-all duration-200 active:scale-[0.98] ${
                         isActive
                           ? theme === 'light'
-                            ? 'bg-white/30 text-zinc-950 border border-zinc-950/20 shadow-sm'
+                            ? 'bg-white/30 text-white border border-white/40 shadow-sm drop-shadow-md'
                             : 'bg-white/20 text-white border border-white/30 shadow-sm'
                           : theme === 'light'
-                            ? 'text-zinc-900 hover:bg-white/20 hover:text-black'
+                            ? 'text-white hover:bg-white/20 hover:text-white drop-shadow-md'
                             : 'text-zinc-200 hover:bg-white/10 hover:text-white'
                       }`}
                     >
                       <div className="flex items-center gap-3">
                         <div className={`p-2 rounded-xl backdrop-blur-md ${
                           isActive
-                            ? theme === 'light' ? 'bg-zinc-950 text-white' : 'bg-white text-zinc-950'
-                            : theme === 'light' ? 'bg-zinc-950/10 text-zinc-900' : 'bg-white/10 text-white'
+                            ? 'bg-white text-zinc-950'
+                            : theme === 'light' ? 'bg-white/20 text-white border border-white/30' : 'bg-white/10 text-white'
                         }`}>
                           <Icon className="w-4 h-4" />
                         </div>
-                        <span className="text-base font-semibold">{tab.label}</span>
+                        <span className="text-base font-bold text-white drop-shadow-[0_1px_4px_rgba(0,0,0,0.9)]">{tab.label}</span>
                       </div>
                       
                       {isActive && (
-                        <span className={`w-2 h-2 rounded-full animate-pulse ${
-                          theme === 'light' ? 'bg-zinc-950' : 'bg-white'
-                        }`} />
+                        <span className="w-2 h-2 rounded-full animate-pulse bg-white shadow-sm" />
                       )}
                     </motion.button>
                   );
