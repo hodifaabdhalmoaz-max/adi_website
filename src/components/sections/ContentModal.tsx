@@ -137,56 +137,38 @@ export const ContentModal: React.FC<ContentModalProps> = ({ activeTab, onClose, 
       case 'portfolio':
       default:
         return {
-          title: 'أهم أعمالنا ومشاريعنا',
-          subtitle: 'نماذج واقعية من الحلول المنفذة بأعلى معايير الإبداع',
-          badge: 'معرض الإنجازات',
+          title: 'أهم أعمالنا',
+          subtitle: 'معرض المشاريع والمنظومات الرقمية',
+          badge: 'قريباً جداً',
           icon: Briefcase,
           color: 'from-zinc-400 via-white to-slate-200',
           content: (
-            <div className="space-y-3">
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-xl hover:border-white/30 hover:bg-white/10 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
-                    <Globe2 className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                      <span>منصة ومتجر العطور الفاخرة</span>
-                      <span className="text-[9.5px] px-2 py-0.5 rounded-full bg-white/15 border border-white/20 text-zinc-100 font-mono">تطبيق حي</span>
-                    </h4>
-                    <p className="text-xs text-zinc-300 mt-1">نظام متكامل لإدارة المنتجات، السلة الإلكترونية، وبوابات الدفع والدعم الفني المباشر.</p>
-                  </div>
-                </div>
+            <div className="py-6 sm:py-8 text-center flex flex-col items-center justify-center space-y-4">
+              {/* Animated Metallic Silver Icon Badge */}
+              <div className="w-16 h-16 rounded-2xl bg-white/10 border border-white/25 flex items-center justify-center text-white shadow-[inset_0_1px_1px_rgba(255,255,255,0.4),0_10px_25px_rgba(0,0,0,0.5)] animate-pulse">
+                <Sparkles className="w-8 h-8 text-zinc-100" />
               </div>
 
-              <div className="p-4 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-xl hover:border-white/30 hover:bg-white/10 transition-all flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-white/10 border border-white/20 text-white shrink-0 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]">
-                    <Zap className="w-5 h-5 text-white" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-white flex items-center gap-2">
-                      <span>منظومة ADI السحابية لإدارة الأعمال</span>
-                      <span className="text-[9.5px] px-2 py-0.5 rounded-full bg-white/15 border border-white/20 text-zinc-100 font-mono">منظومة سحابية</span>
-                    </h4>
-                    <p className="text-xs text-zinc-300 mt-1">لوحة تحكم ذكية للأوتومشن وإدارة المبيعات والعملاء بدقة فائقة.</p>
-                  </div>
-                </div>
+              {/* High-Legibility Announcement Message */}
+              <div className="max-w-md space-y-2 px-2">
+                <h4 className="text-lg sm:text-xl font-extrabold text-white tracking-wide drop-shadow-md">
+                  سيتم رفع أهم ما أنتجته شركتنا قريبا ...
+                </h4>
+                <p className="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+                  نحن نضع اللمسات النهائية على معرض أعمالنا ومنظوماتنا المتقدمة لإتاحتها بأعلى معايير الجودة والابتكار.
+                </p>
               </div>
 
-              <div className="p-3.5 rounded-2xl bg-white/5 border border-white/15 backdrop-blur-xl flex items-center justify-between text-xs text-zinc-300">
-                <span className="flex items-center gap-1.5">
-                  <CheckCircle className="w-4 h-4 text-zinc-100" />
-                  <span>أكثر من 50 مشروع رقمي ناجح</span>
-                </span>
+              {/* Direct Contact Button */}
+              <div className="pt-2">
                 <a
                   href="https://wa.me/967777548421"
                   target="_blank"
                   rel="noreferrer"
-                  className="text-white hover:text-zinc-300 hover:underline flex items-center gap-1 font-extrabold"
+                  className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-zinc-100 via-white to-zinc-200 text-zinc-950 font-extrabold text-xs flex items-center gap-2 hover:from-white hover:to-zinc-300 transition-all shadow-[0_4px_20px_rgba(255,255,255,0.25)] active:scale-95 border border-white/80"
                 >
-                  <span>طلب مشروع خاص</span>
-                  <ExternalLink className="w-3 h-3 text-white" />
+                  <span>استفسر عن مشاريعنا السابقة عبر الواتساب</span>
+                  <ArrowLeft className="w-4 h-4" />
                 </a>
               </div>
             </div>
