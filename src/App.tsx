@@ -4,6 +4,7 @@ import { Volume2, VolumeX, Facebook, Instagram } from 'lucide-react';
 import { CustomCursor } from './components/cursor/CustomCursor';
 import { FloatingHeader } from './components/layout/FloatingHeader';
 import { ContactModal } from './components/sections/ContactModal';
+import { ContentModal } from './components/sections/ContentModal';
 
 // Custom Crisp WhatsApp Icon Component
 const WhatsappIcon = ({ className = "w-5 h-5" }: { className?: string }) => (
@@ -208,6 +209,13 @@ export const App: React.FC = () => {
       <ContactModal
         isOpen={isContactOpen}
         onClose={() => setIsContactOpen(false)}
+      />
+
+      {/* Sections Content Modal (من نحن - خدماتنا - أهم أعمالنا) */}
+      <ContentModal
+        activeTab={activeTab}
+        onClose={() => setActiveTab('hero')}
+        theme={theme}
       />
     </div>
   );
