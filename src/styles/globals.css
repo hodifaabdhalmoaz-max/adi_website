@@ -1,0 +1,359 @@
+@import url('https://fonts.googleapis.com/css2?family=Gasoek+One&family=Handjet:wght,ELSH@100..900,2&family=Oxanium:wght@200..800&display=swap');
+@import "tailwindcss";
+
+/* ====================================================
+   ADI Solutions - Design System Variables & Tokens
+   ==================================================== */
+
+@theme {
+  --color-dark: #0a0a0c;
+  --color-dark-secondary: #121318;
+  --color-light: #f8fafc;
+  --color-accent-cyan: #06b6d4;
+  --color-accent-indigo: #6366f1;
+  --color-accent-purple: #8b5cf6;
+  --color-accent-emerald: #10b981;
+  --font-arabic: 'Handjet', 'Oxanium', sans-serif;
+  --font-english: 'Oxanium', 'Handjet', sans-serif;
+  --font-sans: 'Handjet', 'Oxanium', sans-serif;
+  --font-mono: 'Oxanium', monospace;
+  --font-oxanium: 'Oxanium', sans-serif;
+  --font-handjet: 'Handjet', sans-serif;
+  --font-gasoek: 'Gasoek One', sans-serif;
+}
+
+.font-gasoek {
+  font-family: "Gasoek One", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.font-oxanium {
+  font-family: "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.font-handjet {
+  font-family: "Handjet", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "ELGR" 1,
+    "ELSH" 2;
+}
+
+/* ====================================================
+   CSS Custom Properties for Dark/Light Theme Switching
+   ==================================================== */
+
+:root {
+  --bg-primary: #0a0a0c;
+  --bg-secondary: #121318;
+  --bg-card: rgba(18, 19, 24, 0.7);
+  --text-primary: #f8fafc;
+  --text-secondary: #94a3b8;
+  --border-color: rgba(255, 255, 255, 0.08);
+  --glow-shadow: 0 0 40px rgba(99, 102, 241, 0.15);
+}
+
+html.light {
+  --bg-primary: #f8fafc;
+  --bg-secondary: #ffffff;
+  --bg-card: rgba(255, 255, 255, 0.85);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --border-color: rgba(0, 0, 0, 0.08);
+  --glow-shadow: 0 10px 30px rgba(99, 102, 241, 0.08);
+}
+
+/* ====================================================
+   Base & Reset Styles
+   ==================================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: "Handjet", "Oxanium", sans-serif;
+  font-optical-sizing: auto;
+  font-variation-settings:
+    "ELGR" 1,
+    "ELSH" 2;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(99, 102, 241, 0.4);
+  color: white;
+}
+
+/* ====================================================
+   Glassmorphism Panel & Pill Styles
+   ==================================================== */
+
+.glass-panel {
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  box-shadow: var(--glow-shadow);
+}
+
+.glass-pill {
+  background: rgba(18, 19, 24, 0.75);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-color);
+}
+
+html.light .glass-pill {
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* ====================================================
+   Gradient Text Utilities
+   ==================================================== */
+
+.gradient-text-primary {
+  background: linear-gradient(135deg, #ffffff 0%, #a5b4fc 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+html.light .gradient-text-primary {
+  background: linear-gradient(135deg, #0f172a 0%, #4338ca 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-cyan {
+  background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gradient-text-gold {
+  background: linear-gradient(135deg, #fbbf24 0%, #f59e0b 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ====================================================
+   Scrollbar Styling (Dark Themed)
+   ==================================================== */
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #6366f1;
+}
+
+/* ====================================================
+   Custom Animations
+   ==================================================== */
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(2deg); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 0.8; }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s ease-in-out infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 8s linear infinite;
+}
+
+/* ====================================================
+   RTL/LTR Direction Helpers
+   ==================================================== */
+.dir-ltr {
+  direction: ltr;
+  text-align: left;
+}
+
+/* ====================================================
+   3D Glass Emboss & Transparent Edge Glass Styling
+   ==================================================== */
+
+.glass-header-transparent {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.08) 0%, rgba(15, 15, 22, 0.45) 50%, rgba(8, 8, 12, 0.65) 100%);
+  backdrop-filter: blur(24px) saturate(200%);
+  -webkit-backdrop-filter: blur(24px) saturate(200%);
+  /* Soft transparent glass edge reflection instead of a hard line */
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 
+    inset 0 1px 1.5px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 2px 0 rgba(0, 0, 0, 0.4),
+    0 15px 35px -5px rgba(0, 0, 0, 0.5),
+    0 0 25px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.4s ease;
+}
+
+html.light .glass-header-transparent,
+.light .glass-header-transparent {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, rgba(240, 244, 250, 0.88) 60%, rgba(225, 232, 242, 0.92) 100%);
+  backdrop-filter: blur(28px) saturate(200%);
+  -webkit-backdrop-filter: blur(28px) saturate(200%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    inset 0 1.5px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -1.5px 3px 0 rgba(180, 190, 205, 0.4),
+    0 15px 35px -5px rgba(0, 0, 0, 0.18),
+    0 0 25px 0 rgba(255, 255, 255, 0.8);
+}
+
+.glass-3d-emboss {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.12) 0%, rgba(20, 20, 26, 0.85) 30%, rgba(9, 9, 11, 0.95) 100%);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 
+    inset 0 1.5px 1px 0 rgba(255, 255, 255, 0.6),
+    inset 0 -2.5px 4px 0 rgba(0, 0, 0, 0.85),
+    0 25px 50px -10px rgba(0, 0, 0, 0.85),
+    0 0 35px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.4s ease;
+}
+
+html.light .glass-3d-emboss,
+.light .glass-3d-emboss {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.96) 0%, rgba(240, 244, 250, 0.92) 50%, rgba(220, 228, 240, 0.95) 100%);
+  backdrop-filter: blur(28px) saturate(190%);
+  -webkit-backdrop-filter: blur(28px) saturate(190%);
+  border: 1px solid rgba(255, 255, 255, 0.95);
+  box-shadow: 
+    inset 0 2px 2px 0 rgba(255, 255, 255, 1),
+    inset 0 -2px 4px 0 rgba(160, 175, 195, 0.35),
+    0 20px 45px -10px rgba(0, 0, 0, 0.2),
+    0 0 30px 0 rgba(255, 255, 255, 0.9);
+}
+
+@keyframes liquidWaterGlow {
+  0%, 100% {
+    box-shadow: 
+      0 0 25px rgba(255, 255, 255, 0.12),
+      0 15px 40px rgba(0, 0, 0, 0.85),
+      inset 0 1.5px 1px rgba(255, 255, 255, 0.6);
+    filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.15));
+  }
+  50% {
+    box-shadow: 
+      0 0 50px rgba(255, 255, 255, 0.28),
+      0 20px 50px rgba(0, 0, 0, 0.95),
+      inset 0 2px 2px rgba(255, 255, 255, 0.85);
+    filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.25));
+  }
+}
+
+.animate-liquid-shadow {
+  animation: liquidWaterGlow 4s ease-in-out infinite;
+}
+
+@keyframes liquidSheenMove {
+  0% { transform: translateX(-100%) rotate(15deg); }
+  100% { transform: translateX(200%) rotate(15deg); }
+}
+
+.animate-liquid-sheen {
+  animation: liquidSheenMove 6s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ====================================================
+   Responsive Video Background – Full Content Visible
+   No cropping on any device / aspect ratio
+   ==================================================== */
+
+.video-bg-responsive {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Show the entire video frame – no content is ever clipped */
+  object-fit: contain;
+  /* Fill the smaller axis, center on the larger axis */
+  width: 100%;
+  height: 100%;
+}
+
+/* 
+   Landscape screens (wide viewports): 
+   The video's width is the constraining dimension. 
+   Let it stretch to full width; height auto-fits.
+*/
+@media (min-aspect-ratio: 16/9) {
+  .video-bg-responsive {
+    width: 100%;
+    height: auto;
+    min-height: 100%;
+  }
+}
+
+/* 
+   Portrait / tall screens (e.g. mobile phones):
+   The video's height is the constraining dimension.
+   Let it stretch to full height; width auto-fits.
+*/
+@media (max-aspect-ratio: 9/16) {
+  .video-bg-responsive {
+    width: auto;
+    height: 100%;
+    min-width: 100%;
+  }
+}
+
+/* 
+   Near-square and common tablet ratios (between 9:16 and 16:9):
+   Use object-fit: cover as a balanced compromise, but 
+   for the mobile video specifically keep contain behavior.
+*/
+@media (min-aspect-ratio: 9/16) and (max-aspect-ratio: 16/9) {
+  .video-bg-responsive {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}
+
