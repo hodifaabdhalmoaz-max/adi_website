@@ -31,25 +31,28 @@ export const ContactModal: React.FC<ContactModalProps> = ({ isOpen, onClose }) =
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           onClick={onClose}
-          className="absolute inset-0 bg-black/80 backdrop-blur-md"
+          className="absolute inset-0 bg-black/70 backdrop-blur-2xl"
         />
 
-        {/* Modal Container (Strictly Rounded and Contained) */}
+        {/* Modal Container (Transparent Liquid Glass with Metallic Silver Accents) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.95, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 20 }}
-          className="relative w-full max-w-lg bg-zinc-950/95 border border-zinc-700/80 rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.9)] z-10 overflow-hidden text-right box-border"
+          className="relative w-full max-w-lg bg-zinc-950/85 backdrop-blur-3xl border border-white/20 rounded-3xl p-6 sm:p-7 shadow-[0_25px_60px_rgba(0,0,0,0.85),inset_0_1px_1.5px_rgba(255,255,255,0.4)] z-10 overflow-hidden text-right box-border"
         >
+          {/* Internal Animated Water Sheen Reflection Line */}
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 animate-liquid-sheen pointer-events-none" />
+
           {/* Metallic Silver Header Highlight */}
-          <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-zinc-500 via-zinc-200 to-zinc-600 pointer-events-none" />
+          <div className="absolute top-0 inset-x-0 h-1.5 bg-gradient-to-r from-zinc-400 via-white to-zinc-300 pointer-events-none" />
 
           {/* Close Button */}
           <button
             onClick={onClose}
-            className="absolute top-5 left-5 w-8 h-8 rounded-full bg-zinc-900 border border-zinc-700 flex items-center justify-center text-zinc-400 hover:text-white hover:border-zinc-400 transition-colors z-20"
+            className="absolute top-5 left-5 w-8 h-8 rounded-full bg-white/10 border border-white/25 flex items-center justify-center text-zinc-200 hover:text-white hover:bg-white/20 hover:border-white/40 transition-all z-20 shadow-[inset_0_1px_1px_rgba(255,255,255,0.4)]"
           >
-            <X className="w-4 h-4" />
+            <X className="w-4 h-4 text-white" />
           </button>
 
           <div className="flex items-center gap-3 mb-2">
